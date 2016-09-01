@@ -1,0 +1,1071 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DBModels.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Contact">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="email" Type="text" Nullable="false" />
+          <Property Name="telephone" Type="text" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="user_id" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="prospect_id" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="id" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DriveTest">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="prospect_id" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="datetime" Type="datetime" Nullable="false" />
+          <Property Name="salesman_id" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="id" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="test_car_id" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="details" Type="text" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Invoice">
+          <Key>
+            <PropertyRef Name="order_id" />
+          </Key>
+          <Property Name="order_id" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="date" Type="date" Nullable="false" />
+          <Property Name="series" Type="text" Nullable="false" />
+          <Property Name="number" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="customer_id" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="specialoffer_id" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OrderDetails">
+          <Key>
+            <PropertyRef Name="order_id" />
+          </Key>
+          <Property Name="order_id" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="product_id" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="quantity" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="name" Type="text" Nullable="false" />
+          <Property Name="quantity_for_sale" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="quantity_for_test" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="model" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="engine_capacity" Type="float" Nullable="false" />
+          <Property Name="price" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProductDetails">
+          <Key>
+            <PropertyRef Name="product_id" />
+          </Key>
+          <Property Name="product_category_id" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="chasis_series" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="isforsale" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="product_id" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Prospect">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="name" Type="text" Nullable="false" />
+          <Property Name="details" Type="text" Nullable="false" />
+          <Property Name="contact_id" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Reminder">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="salesman_id" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="customer_id" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="text" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="id" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Salesman">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="user_id" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="surname" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="id" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SpecialOffer">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="discount_percent" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="discout_details" Type="text" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="TestCar">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="product_details_id" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="username" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="password" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="id" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="contact_id" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+        </EntityType>
+        <Association Name="Customer_fk0">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Customer">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Customer_fk1">
+          <End Role="Prospect" Type="Self.Prospect" Multiplicity="1" />
+          <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Prospect">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Customer">
+              <PropertyRef Name="prospect_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="DriveTest_fk0">
+          <End Role="Prospect" Type="Self.Prospect" Multiplicity="1" />
+          <End Role="DriveTest" Type="Self.DriveTest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Prospect">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="DriveTest">
+              <PropertyRef Name="prospect_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="DriveTest_fk1">
+          <End Role="Salesman" Type="Self.Salesman" Multiplicity="1" />
+          <End Role="DriveTest" Type="Self.DriveTest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Salesman">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="DriveTest">
+              <PropertyRef Name="salesman_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="DriveTest_fk2">
+          <End Role="TestCar" Type="Self.TestCar" Multiplicity="1" />
+          <End Role="DriveTest" Type="Self.DriveTest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TestCar">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="DriveTest">
+              <PropertyRef Name="test_car_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Invoice_fk0">
+          <End Role="Order" Type="Self.Order" Multiplicity="1" />
+          <End Role="Invoice" Type="Self.Invoice" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Invoice">
+              <PropertyRef Name="order_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Order_fk0">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="customer_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Order_fk1">
+          <End Role="SpecialOffer" Type="Self.SpecialOffer" Multiplicity="1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SpecialOffer">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="specialoffer_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="OrderDetails_fk0">
+          <End Role="Order" Type="Self.Order" Multiplicity="1" />
+          <End Role="OrderDetails" Type="Self.OrderDetails" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="OrderDetails">
+              <PropertyRef Name="order_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="OrderDetails_fk1">
+          <End Role="ProductDetails" Type="Self.ProductDetails" Multiplicity="1" />
+          <End Role="OrderDetails" Type="Self.OrderDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductDetails">
+              <PropertyRef Name="product_id" />
+            </Principal>
+            <Dependent Role="OrderDetails">
+              <PropertyRef Name="product_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ProductDetails_fk0">
+          <End Role="Product" Type="Self.Product" Multiplicity="1" />
+          <End Role="ProductDetails" Type="Self.ProductDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ProductDetails">
+              <PropertyRef Name="product_category_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Prospect_fk0">
+          <End Role="Contact" Type="Self.Contact" Multiplicity="1" />
+          <End Role="Prospect" Type="Self.Prospect" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Contact">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Prospect">
+              <PropertyRef Name="contact_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Reminder_fk0">
+          <End Role="Salesman" Type="Self.Salesman" Multiplicity="1" />
+          <End Role="Reminder" Type="Self.Reminder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Salesman">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Reminder">
+              <PropertyRef Name="salesman_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Reminder_fk1">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+          <End Role="Reminder" Type="Self.Reminder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Reminder">
+              <PropertyRef Name="customer_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Salesman_fk0">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Salesman" Type="Self.Salesman" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Salesman">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TestCar_fk0">
+          <End Role="ProductDetails" Type="Self.ProductDetails" Multiplicity="1" />
+          <End Role="TestCar" Type="Self.TestCar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductDetails">
+              <PropertyRef Name="product_id" />
+            </Principal>
+            <Dependent Role="TestCar">
+              <PropertyRef Name="product_details_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="User_fk0">
+          <End Role="Contact" Type="Self.Contact" Multiplicity="1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Contact">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="contact_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DBModelsStoreContainer">
+          <EntitySet Name="Contact" EntityType="Self.Contact" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DriveTest" EntityType="Self.DriveTest" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Invoice" EntityType="Self.Invoice" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OrderDetails" EntityType="Self.OrderDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductDetails" EntityType="Self.ProductDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Prospect" EntityType="Self.Prospect" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Reminder" EntityType="Self.Reminder" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Salesman" EntityType="Self.Salesman" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SpecialOffer" EntityType="Self.SpecialOffer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TestCar" EntityType="Self.TestCar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="Customer_fk0" Association="Self.Customer_fk0">
+            <End Role="User" EntitySet="User" />
+            <End Role="Customer" EntitySet="Customer" />
+          </AssociationSet>
+          <AssociationSet Name="Customer_fk1" Association="Self.Customer_fk1">
+            <End Role="Prospect" EntitySet="Prospect" />
+            <End Role="Customer" EntitySet="Customer" />
+          </AssociationSet>
+          <AssociationSet Name="DriveTest_fk0" Association="Self.DriveTest_fk0">
+            <End Role="Prospect" EntitySet="Prospect" />
+            <End Role="DriveTest" EntitySet="DriveTest" />
+          </AssociationSet>
+          <AssociationSet Name="DriveTest_fk1" Association="Self.DriveTest_fk1">
+            <End Role="Salesman" EntitySet="Salesman" />
+            <End Role="DriveTest" EntitySet="DriveTest" />
+          </AssociationSet>
+          <AssociationSet Name="DriveTest_fk2" Association="Self.DriveTest_fk2">
+            <End Role="TestCar" EntitySet="TestCar" />
+            <End Role="DriveTest" EntitySet="DriveTest" />
+          </AssociationSet>
+          <AssociationSet Name="Invoice_fk0" Association="Self.Invoice_fk0">
+            <End Role="Order" EntitySet="Order" />
+            <End Role="Invoice" EntitySet="Invoice" />
+          </AssociationSet>
+          <AssociationSet Name="Order_fk0" Association="Self.Order_fk0">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="Order_fk1" Association="Self.Order_fk1">
+            <End Role="SpecialOffer" EntitySet="SpecialOffer" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="OrderDetails_fk0" Association="Self.OrderDetails_fk0">
+            <End Role="Order" EntitySet="Order" />
+            <End Role="OrderDetails" EntitySet="OrderDetails" />
+          </AssociationSet>
+          <AssociationSet Name="OrderDetails_fk1" Association="Self.OrderDetails_fk1">
+            <End Role="ProductDetails" EntitySet="ProductDetails" />
+            <End Role="OrderDetails" EntitySet="OrderDetails" />
+          </AssociationSet>
+          <AssociationSet Name="ProductDetails_fk0" Association="Self.ProductDetails_fk0">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="ProductDetails" EntitySet="ProductDetails" />
+          </AssociationSet>
+          <AssociationSet Name="Prospect_fk0" Association="Self.Prospect_fk0">
+            <End Role="Contact" EntitySet="Contact" />
+            <End Role="Prospect" EntitySet="Prospect" />
+          </AssociationSet>
+          <AssociationSet Name="Reminder_fk0" Association="Self.Reminder_fk0">
+            <End Role="Salesman" EntitySet="Salesman" />
+            <End Role="Reminder" EntitySet="Reminder" />
+          </AssociationSet>
+          <AssociationSet Name="Reminder_fk1" Association="Self.Reminder_fk1">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="Reminder" EntitySet="Reminder" />
+          </AssociationSet>
+          <AssociationSet Name="Salesman_fk0" Association="Self.Salesman_fk0">
+            <End Role="User" EntitySet="User" />
+            <End Role="Salesman" EntitySet="Salesman" />
+          </AssociationSet>
+          <AssociationSet Name="TestCar_fk0" Association="Self.TestCar_fk0">
+            <End Role="ProductDetails" EntitySet="ProductDetails" />
+            <End Role="TestCar" EntitySet="TestCar" />
+          </AssociationSet>
+          <AssociationSet Name="User_fk0" Association="Self.User_fk0">
+            <End Role="Contact" EntitySet="Contact" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DBModels" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Contact">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="telephone" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Prospects" Relationship="Self.Prospect_fk0" FromRole="Contact" ToRole="Prospect" />
+          <NavigationProperty Name="Users" Relationship="Self.User_fk0" FromRole="Contact" ToRole="User" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="user_id" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="prospect_id" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="id" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <NavigationProperty Name="User" Relationship="Self.Customer_fk0" FromRole="Customer" ToRole="User" />
+          <NavigationProperty Name="Prospect" Relationship="Self.Customer_fk1" FromRole="Customer" ToRole="Prospect" />
+          <NavigationProperty Name="Orders" Relationship="Self.Order_fk0" FromRole="Customer" ToRole="Order" />
+          <NavigationProperty Name="Reminders" Relationship="Self.Reminder_fk1" FromRole="Customer" ToRole="Reminder" />
+        </EntityType>
+        <EntityType Name="DriveTest">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="prospect_id" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="datetime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="salesman_id" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="id" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="test_car_id" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="details" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Prospect" Relationship="Self.DriveTest_fk0" FromRole="DriveTest" ToRole="Prospect" />
+          <NavigationProperty Name="Salesman" Relationship="Self.DriveTest_fk1" FromRole="DriveTest" ToRole="Salesman" />
+          <NavigationProperty Name="TestCar" Relationship="Self.DriveTest_fk2" FromRole="DriveTest" ToRole="TestCar" />
+        </EntityType>
+        <EntityType Name="Invoice">
+          <Key>
+            <PropertyRef Name="order_id" />
+          </Key>
+          <Property Name="order_id" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="series" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="number" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <NavigationProperty Name="Order" Relationship="Self.Invoice_fk0" FromRole="Invoice" ToRole="Order" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="customer_id" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="specialoffer_id" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <NavigationProperty Name="Customer" Relationship="Self.Order_fk0" FromRole="Order" ToRole="Customer" />
+          <NavigationProperty Name="Invoice" Relationship="Self.Invoice_fk0" FromRole="Order" ToRole="Invoice" />
+          <NavigationProperty Name="SpecialOffer" Relationship="Self.Order_fk1" FromRole="Order" ToRole="SpecialOffer" />
+          <NavigationProperty Name="OrderDetail" Relationship="Self.OrderDetails_fk0" FromRole="Order" ToRole="OrderDetails" />
+        </EntityType>
+        <EntityType Name="OrderDetail">
+          <Key>
+            <PropertyRef Name="order_id" />
+          </Key>
+          <Property Name="order_id" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="product_id" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="quantity" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <NavigationProperty Name="Order" Relationship="Self.OrderDetails_fk0" FromRole="OrderDetails" ToRole="Order" />
+          <NavigationProperty Name="ProductDetail" Relationship="Self.OrderDetails_fk1" FromRole="OrderDetails" ToRole="ProductDetails" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="quantity_for_sale" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="quantity_for_test" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="model" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="engine_capacity" Type="Double" Nullable="false" />
+          <Property Name="price" Type="Double" Nullable="false" />
+          <NavigationProperty Name="ProductDetails" Relationship="Self.ProductDetails_fk0" FromRole="Product" ToRole="ProductDetails" />
+        </EntityType>
+        <EntityType Name="ProductDetail">
+          <Key>
+            <PropertyRef Name="product_id" />
+          </Key>
+          <Property Name="product_category_id" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="chasis_series" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="isforsale" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="product_id" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <NavigationProperty Name="OrderDetails" Relationship="Self.OrderDetails_fk1" FromRole="ProductDetails" ToRole="OrderDetails" />
+          <NavigationProperty Name="Product" Relationship="Self.ProductDetails_fk0" FromRole="ProductDetails" ToRole="Product" />
+          <NavigationProperty Name="TestCars" Relationship="Self.TestCar_fk0" FromRole="ProductDetails" ToRole="TestCar" />
+        </EntityType>
+        <EntityType Name="Prospect">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="details" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="contact_id" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <NavigationProperty Name="Contact" Relationship="Self.Prospect_fk0" FromRole="Prospect" ToRole="Contact" />
+          <NavigationProperty Name="Customers" Relationship="Self.Customer_fk1" FromRole="Prospect" ToRole="Customer" />
+          <NavigationProperty Name="DriveTests" Relationship="Self.DriveTest_fk0" FromRole="Prospect" ToRole="DriveTest" />
+        </EntityType>
+        <EntityType Name="Reminder">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="salesman_id" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="customer_id" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="text" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="id" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <NavigationProperty Name="Customer" Relationship="Self.Reminder_fk1" FromRole="Reminder" ToRole="Customer" />
+          <NavigationProperty Name="Salesman" Relationship="Self.Reminder_fk0" FromRole="Reminder" ToRole="Salesman" />
+        </EntityType>
+        <EntityType Name="Salesman">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="user_id" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="surname" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="id" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <NavigationProperty Name="DriveTests" Relationship="Self.DriveTest_fk1" FromRole="Salesman" ToRole="DriveTest" />
+          <NavigationProperty Name="Reminders" Relationship="Self.Reminder_fk0" FromRole="Salesman" ToRole="Reminder" />
+          <NavigationProperty Name="User" Relationship="Self.Salesman_fk0" FromRole="Salesman" ToRole="User" />
+        </EntityType>
+        <EntityType Name="SpecialOffer">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="discount_percent" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="discout_details" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Orders" Relationship="Self.Order_fk1" FromRole="SpecialOffer" ToRole="Order" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="TestCar">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="product_details_id" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <NavigationProperty Name="DriveTests" Relationship="Self.DriveTest_fk2" FromRole="TestCar" ToRole="DriveTest" />
+          <NavigationProperty Name="ProductDetail" Relationship="Self.TestCar_fk0" FromRole="TestCar" ToRole="ProductDetails" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="username" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="id" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="contact_id" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <NavigationProperty Name="Contact" Relationship="Self.User_fk0" FromRole="User" ToRole="Contact" />
+          <NavigationProperty Name="Customers" Relationship="Self.Customer_fk0" FromRole="User" ToRole="Customer" />
+          <NavigationProperty Name="Salesmen" Relationship="Self.Salesman_fk0" FromRole="User" ToRole="Salesman" />
+        </EntityType>
+        <Association Name="Prospect_fk0">
+          <End Role="Contact" Type="Self.Contact" Multiplicity="1" />
+          <End Role="Prospect" Type="Self.Prospect" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Contact">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Prospect">
+              <PropertyRef Name="contact_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="User_fk0">
+          <End Role="Contact" Type="Self.Contact" Multiplicity="1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Contact">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="contact_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Customer_fk0">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Customer">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Customer_fk1">
+          <End Role="Prospect" Type="Self.Prospect" Multiplicity="1" />
+          <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Prospect">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Customer">
+              <PropertyRef Name="prospect_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Order_fk0">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="customer_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Reminder_fk1">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+          <End Role="Reminder" Type="Self.Reminder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Reminder">
+              <PropertyRef Name="customer_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="DriveTest_fk0">
+          <End Role="Prospect" Type="Self.Prospect" Multiplicity="1" />
+          <End Role="DriveTest" Type="Self.DriveTest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Prospect">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="DriveTest">
+              <PropertyRef Name="prospect_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="DriveTest_fk1">
+          <End Role="Salesman" Type="Self.Salesman" Multiplicity="1" />
+          <End Role="DriveTest" Type="Self.DriveTest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Salesman">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="DriveTest">
+              <PropertyRef Name="salesman_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="DriveTest_fk2">
+          <End Role="TestCar" Type="Self.TestCar" Multiplicity="1" />
+          <End Role="DriveTest" Type="Self.DriveTest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TestCar">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="DriveTest">
+              <PropertyRef Name="test_car_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Invoice_fk0">
+          <End Role="Order" Type="Self.Order" Multiplicity="1" />
+          <End Role="Invoice" Type="Self.Invoice" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Invoice">
+              <PropertyRef Name="order_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Order_fk1">
+          <End Role="SpecialOffer" Type="Self.SpecialOffer" Multiplicity="1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SpecialOffer">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="specialoffer_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="OrderDetails_fk0">
+          <End Role="Order" Type="Self.Order" Multiplicity="1" />
+          <End Role="OrderDetails" Type="Self.OrderDetail" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="OrderDetails">
+              <PropertyRef Name="order_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="OrderDetails_fk1">
+          <End Role="ProductDetails" Type="Self.ProductDetail" Multiplicity="1" />
+          <End Role="OrderDetails" Type="Self.OrderDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductDetails">
+              <PropertyRef Name="product_id" />
+            </Principal>
+            <Dependent Role="OrderDetails">
+              <PropertyRef Name="product_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ProductDetails_fk0">
+          <End Role="Product" Type="Self.Product" Multiplicity="1" />
+          <End Role="ProductDetails" Type="Self.ProductDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ProductDetails">
+              <PropertyRef Name="product_category_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TestCar_fk0">
+          <End Role="ProductDetails" Type="Self.ProductDetail" Multiplicity="1" />
+          <End Role="TestCar" Type="Self.TestCar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductDetails">
+              <PropertyRef Name="product_id" />
+            </Principal>
+            <Dependent Role="TestCar">
+              <PropertyRef Name="product_details_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Reminder_fk0">
+          <End Role="Salesman" Type="Self.Salesman" Multiplicity="1" />
+          <End Role="Reminder" Type="Self.Reminder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Salesman">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Reminder">
+              <PropertyRef Name="salesman_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Salesman_fk0">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Salesman" Type="Self.Salesman" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Salesman">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DBModelContext" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Contacts" EntityType="Self.Contact" />
+          <EntitySet Name="Customers" EntityType="Self.Customer" />
+          <EntitySet Name="DriveTests" EntityType="Self.DriveTest" />
+          <EntitySet Name="Invoices" EntityType="Self.Invoice" />
+          <EntitySet Name="Orders" EntityType="Self.Order" />
+          <EntitySet Name="OrderDetails" EntityType="Self.OrderDetail" />
+          <EntitySet Name="Products" EntityType="Self.Product" />
+          <EntitySet Name="ProductDetails" EntityType="Self.ProductDetail" />
+          <EntitySet Name="Prospects" EntityType="Self.Prospect" />
+          <EntitySet Name="Reminders" EntityType="Self.Reminder" />
+          <EntitySet Name="Salesmen" EntityType="Self.Salesman" />
+          <EntitySet Name="SpecialOffers" EntityType="Self.SpecialOffer" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="TestCars" EntityType="Self.TestCar" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <AssociationSet Name="Prospect_fk0" Association="Self.Prospect_fk0">
+            <End Role="Contact" EntitySet="Contacts" />
+            <End Role="Prospect" EntitySet="Prospects" />
+          </AssociationSet>
+          <AssociationSet Name="User_fk0" Association="Self.User_fk0">
+            <End Role="Contact" EntitySet="Contacts" />
+            <End Role="User" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="Customer_fk0" Association="Self.Customer_fk0">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Customer" EntitySet="Customers" />
+          </AssociationSet>
+          <AssociationSet Name="Customer_fk1" Association="Self.Customer_fk1">
+            <End Role="Prospect" EntitySet="Prospects" />
+            <End Role="Customer" EntitySet="Customers" />
+          </AssociationSet>
+          <AssociationSet Name="Order_fk0" Association="Self.Order_fk0">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="Order" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="Reminder_fk1" Association="Self.Reminder_fk1">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="Reminder" EntitySet="Reminders" />
+          </AssociationSet>
+          <AssociationSet Name="DriveTest_fk0" Association="Self.DriveTest_fk0">
+            <End Role="Prospect" EntitySet="Prospects" />
+            <End Role="DriveTest" EntitySet="DriveTests" />
+          </AssociationSet>
+          <AssociationSet Name="DriveTest_fk1" Association="Self.DriveTest_fk1">
+            <End Role="Salesman" EntitySet="Salesmen" />
+            <End Role="DriveTest" EntitySet="DriveTests" />
+          </AssociationSet>
+          <AssociationSet Name="DriveTest_fk2" Association="Self.DriveTest_fk2">
+            <End Role="TestCar" EntitySet="TestCars" />
+            <End Role="DriveTest" EntitySet="DriveTests" />
+          </AssociationSet>
+          <AssociationSet Name="Invoice_fk0" Association="Self.Invoice_fk0">
+            <End Role="Order" EntitySet="Orders" />
+            <End Role="Invoice" EntitySet="Invoices" />
+          </AssociationSet>
+          <AssociationSet Name="Order_fk1" Association="Self.Order_fk1">
+            <End Role="SpecialOffer" EntitySet="SpecialOffers" />
+            <End Role="Order" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="OrderDetails_fk0" Association="Self.OrderDetails_fk0">
+            <End Role="Order" EntitySet="Orders" />
+            <End Role="OrderDetails" EntitySet="OrderDetails" />
+          </AssociationSet>
+          <AssociationSet Name="OrderDetails_fk1" Association="Self.OrderDetails_fk1">
+            <End Role="ProductDetails" EntitySet="ProductDetails" />
+            <End Role="OrderDetails" EntitySet="OrderDetails" />
+          </AssociationSet>
+          <AssociationSet Name="ProductDetails_fk0" Association="Self.ProductDetails_fk0">
+            <End Role="Product" EntitySet="Products" />
+            <End Role="ProductDetails" EntitySet="ProductDetails" />
+          </AssociationSet>
+          <AssociationSet Name="TestCar_fk0" Association="Self.TestCar_fk0">
+            <End Role="ProductDetails" EntitySet="ProductDetails" />
+            <End Role="TestCar" EntitySet="TestCars" />
+          </AssociationSet>
+          <AssociationSet Name="Reminder_fk0" Association="Self.Reminder_fk0">
+            <End Role="Salesman" EntitySet="Salesmen" />
+            <End Role="Reminder" EntitySet="Reminders" />
+          </AssociationSet>
+          <AssociationSet Name="Salesman_fk0" Association="Self.Salesman_fk0">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Salesman" EntitySet="Salesmen" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DBModelsStoreContainer" CdmEntityContainer="DBModelContext">
+          <EntitySetMapping Name="Contacts">
+            <EntityTypeMapping TypeName="DBModels.Contact">
+              <MappingFragment StoreEntitySet="Contact">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="telephone" ColumnName="telephone" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Customers">
+            <EntityTypeMapping TypeName="DBModels.Customer">
+              <MappingFragment StoreEntitySet="Customer">
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="prospect_id" ColumnName="prospect_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DriveTests">
+            <EntityTypeMapping TypeName="DBModels.DriveTest">
+              <MappingFragment StoreEntitySet="DriveTest">
+                <ScalarProperty Name="prospect_id" ColumnName="prospect_id" />
+                <ScalarProperty Name="datetime" ColumnName="datetime" />
+                <ScalarProperty Name="salesman_id" ColumnName="salesman_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="test_car_id" ColumnName="test_car_id" />
+                <ScalarProperty Name="details" ColumnName="details" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Invoices">
+            <EntityTypeMapping TypeName="DBModels.Invoice">
+              <MappingFragment StoreEntitySet="Invoice">
+                <ScalarProperty Name="order_id" ColumnName="order_id" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="series" ColumnName="series" />
+                <ScalarProperty Name="number" ColumnName="number" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Orders">
+            <EntityTypeMapping TypeName="DBModels.Order">
+              <MappingFragment StoreEntitySet="Order">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="customer_id" ColumnName="customer_id" />
+                <ScalarProperty Name="specialoffer_id" ColumnName="specialoffer_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrderDetails">
+            <EntityTypeMapping TypeName="DBModels.OrderDetail">
+              <MappingFragment StoreEntitySet="OrderDetails">
+                <ScalarProperty Name="order_id" ColumnName="order_id" />
+                <ScalarProperty Name="product_id" ColumnName="product_id" />
+                <ScalarProperty Name="quantity" ColumnName="quantity" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="DBModels.Product">
+              <MappingFragment StoreEntitySet="Product">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="quantity_for_sale" ColumnName="quantity_for_sale" />
+                <ScalarProperty Name="quantity_for_test" ColumnName="quantity_for_test" />
+                <ScalarProperty Name="model" ColumnName="model" />
+                <ScalarProperty Name="engine_capacity" ColumnName="engine_capacity" />
+                <ScalarProperty Name="price" ColumnName="price" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductDetails">
+            <EntityTypeMapping TypeName="DBModels.ProductDetail">
+              <MappingFragment StoreEntitySet="ProductDetails">
+                <ScalarProperty Name="product_category_id" ColumnName="product_category_id" />
+                <ScalarProperty Name="chasis_series" ColumnName="chasis_series" />
+                <ScalarProperty Name="isforsale" ColumnName="isforsale" />
+                <ScalarProperty Name="product_id" ColumnName="product_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Prospects">
+            <EntityTypeMapping TypeName="DBModels.Prospect">
+              <MappingFragment StoreEntitySet="Prospect">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="details" ColumnName="details" />
+                <ScalarProperty Name="contact_id" ColumnName="contact_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Reminders">
+            <EntityTypeMapping TypeName="DBModels.Reminder">
+              <MappingFragment StoreEntitySet="Reminder">
+                <ScalarProperty Name="salesman_id" ColumnName="salesman_id" />
+                <ScalarProperty Name="customer_id" ColumnName="customer_id" />
+                <ScalarProperty Name="text" ColumnName="text" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Salesmen">
+            <EntityTypeMapping TypeName="DBModels.Salesman">
+              <MappingFragment StoreEntitySet="Salesman">
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="surname" ColumnName="surname" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SpecialOffers">
+            <EntityTypeMapping TypeName="DBModels.SpecialOffer">
+              <MappingFragment StoreEntitySet="SpecialOffer">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="discount_percent" ColumnName="discount_percent" />
+                <ScalarProperty Name="discout_details" ColumnName="discout_details" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="DBModels.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TestCars">
+            <EntityTypeMapping TypeName="DBModels.TestCar">
+              <MappingFragment StoreEntitySet="TestCar">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="product_details_id" ColumnName="product_details_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="DBModels.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="contact_id" ColumnName="contact_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

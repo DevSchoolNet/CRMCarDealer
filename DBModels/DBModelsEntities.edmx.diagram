@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e0abdee6eab64b7289203ca8fd421421" Name="Diagram1">
+        <EntityTypeShape EntityType="DBModels.Contact" Width="1.5" PointX="0.75" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModels.Customer" Width="1.5" PointX="5.25" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModels.DriveTest" Width="1.5" PointX="7.5" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModels.Invoice" Width="1.5" PointX="9.75" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModels.Order" Width="1.5" PointX="7.5" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModels.OrderDetail" Width="1.5" PointX="9.75" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModels.Product" Width="1.5" PointX="5.25" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModels.ProductDetail" Width="1.5" PointX="7.5" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModels.Prospect" Width="1.5" PointX="3" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModels.Reminder" Width="1.5" PointX="10.5" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModels.Salesman" Width="1.5" PointX="5.25" PointY="10.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModels.SpecialOffer" Width="1.5" PointX="5.25" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModels.sysdiagram" Width="1.5" PointX="0.75" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModels.TestCar" Width="1.5" PointX="5.25" PointY="14.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModels.User" Width="1.5" PointX="3" PointY="10.875" IsExpanded="true" />
+        <AssociationConnector Association="DBModels.Prospect_fk0" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModels.User_fk0" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModels.Customer_fk0" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModels.Customer_fk1" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModels.Order_fk0" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModels.Reminder_fk1" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModels.DriveTest_fk0" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModels.DriveTest_fk1" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModels.DriveTest_fk2" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModels.Invoice_fk0" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModels.Order_fk1" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModels.OrderDetails_fk0" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModels.OrderDetails_fk1" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModels.ProductDetails_fk0" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModels.TestCar_fk0" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModels.Reminder_fk0" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModels.Salesman_fk0" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
