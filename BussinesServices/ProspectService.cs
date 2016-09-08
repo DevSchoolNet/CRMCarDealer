@@ -18,11 +18,13 @@ namespace BussinesServices
         }
 
         //Db API
-        public void GetByID(int id)
+        public Prospect GetByID(decimal id)
         {
             var query = from prospect in db.Prospects
                         where prospect.id == id
                         select prospect;
+
+	        return query.FirstOrDefault();
         }
 
         public List<Prospect> GetAll()

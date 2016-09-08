@@ -36,13 +36,21 @@ namespace CRMCarDealer.Controllers
         }
 
         [HttpPost]
-        public ActionResult CompletareDate(Person person)
+        public ActionResult CompletareDate(Person ionel)
         {
             ContactService contactService = new ContactService();
-            Contact contact = new Contact(person.Email, person.Telephone);
+            Contact contact = new Contact()
+            {
+				email = ionel.Email,
+				telephone= ionel.Telephone
+			};
             contactService.insert(contact);
             ProspectService prospectService = new ProspectService();
-            prospectService.insert(new Prospect(person.FirstName + " " + person.LastName, "--",contact.id));
+            prospectService.insert(new Prospect()
+            {
+	            name =  ionel.FirstName + " " + ionel.LastName,
+				details = "--"
+			} );
             return View("Index");
         }
     }

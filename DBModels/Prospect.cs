@@ -14,22 +14,13 @@ namespace DBModels
     
     public partial class Prospect
     {
-        #region Constructors
-        public Prospect(string _name, string _details, decimal _contact_id)
-        {
-            this.name = _name;
-            this.details = _details;
-            this.contact_id = _contact_id;
-        }
-        #endregion
-
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Prospect()
         {
             this.Customers = new HashSet<Customer>();
             this.DriveTests = new HashSet<DriveTest>();
         }
-
+    
         public decimal id { get; set; }
         public string name { get; set; }
         public string details { get; set; }

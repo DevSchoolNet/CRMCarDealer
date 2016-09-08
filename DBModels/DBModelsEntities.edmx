@@ -606,7 +606,9 @@
         
         
         <Association Name="Prospect_fk0">
-          <End Role="Contact" Type="Self.Contact" Multiplicity="1" />
+          <End Role="Contact" Type="Self.Contact" Multiplicity="1" >
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Prospect" Type="Self.Prospect" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Contact">

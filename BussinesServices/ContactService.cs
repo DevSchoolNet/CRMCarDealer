@@ -2,6 +2,7 @@
 using System.Linq;
 using DBModels;
 
+
 namespace BussinesServices
 {
     public class ContactService
@@ -23,16 +24,43 @@ namespace BussinesServices
                         select contact;
         }
 
+	    public Contact GetByEmail(string email)
+	    {
+		    var contact = (from co in db.Contacts
+			    where co.email == email
+			    select co).FirstOrDefault();
+		    return contact;
+	    }
         public List<Contact> GetAll()
         {
             return db.Contacts.ToList();
         }
 
-        public void insert(Contact _contact)
+        public decimal insert(Contact _contact)
         {
-            db.Contacts.Add(new Contact(_contact.email, _contact.telephone));
+            db.Contacts.Add(_contact);
             db.SaveChanges();
+	        return _contact.id;
         }
+
+	    public void DeleteById(decimal Id)
+	    {
+			var contact = ( from co in db.Contacts
+							where co.id == Id
+							select co ).FirstOrDefault();
+
+		    if (contact != null)
+		    {
+			    var contactProspects = contact.Prospects.ToList();
+			    for (int i = 0; i < contactProspects.Count; i++)
+			    {
+				    var  prospect = contactProspects[i];
+					db.Prospects.Remove( prospect );
+				}
+				db.Contacts.Remove(contact);
+			    db.SaveChanges();
+		    }
+	    }
 
         public void update(int id, Contact _contact)
         {
@@ -46,5 +74,10 @@ namespace BussinesServices
         }
 
 
+	    public void update(Contact contactFromDb)
+	    {
+			db.Contacts.Attach( contactFromDb );
+			db.SaveChanges();
+		}
     }
 }
