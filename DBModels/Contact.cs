@@ -11,16 +11,28 @@ namespace DBModels
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+
     public partial class Contact
     {
+        #region Constructors
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Contact()
         {
             this.Prospects = new HashSet<Prospect>();
             this.Users = new HashSet<User>();
         }
-    
+
+        public Contact(string email, string telephone)
+        {
+            this.email = email;
+            this.telephone = telephone;
+        }
+        #endregion
+
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public decimal id { get; set; }
         public string email { get; set; }
         public string telephone { get; set; }

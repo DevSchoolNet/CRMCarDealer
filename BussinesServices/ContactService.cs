@@ -30,7 +30,7 @@ namespace BussinesServices
 
         public void insert(Contact _contact)
         {
-            db.Contacts.Add(_contact);
+            db.Contacts.Add(new Contact(_contact.email, _contact.telephone));
             db.SaveChanges();
         }
 

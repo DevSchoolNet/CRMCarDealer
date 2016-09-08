@@ -9,7 +9,7 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="id" Type="decimal" Precision="18" Scale="0" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="email" Type="text" Nullable="false" />
           <Property Name="telephone" Type="text" Nullable="false" />
         </EntityType>
@@ -19,7 +19,7 @@
           </Key>
           <Property Name="user_id" Type="decimal" Precision="18" Scale="0" Nullable="false" />
           <Property Name="prospect_id" Type="decimal" Precision="18" Scale="0" Nullable="false" />
-          <Property Name="id" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="id" Type="decimal" Precision="18" Scale="0" Nullable="false" StoreGeneratedPattern="Identity" />
         </EntityType>
         <EntityType Name="DriveTest">
           <Key>
@@ -28,7 +28,7 @@
           <Property Name="prospect_id" Type="decimal" Precision="18" Scale="0" Nullable="false" />
           <Property Name="datetime" Type="datetime" Nullable="false" />
           <Property Name="salesman_id" Type="decimal" Precision="18" Scale="0" Nullable="false" />
-          <Property Name="id" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="id" Type="decimal" Precision="18" Scale="0" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="test_car_id" Type="decimal" Precision="18" Scale="0" Nullable="false" />
           <Property Name="details" Type="text" Nullable="false" />
         </EntityType>
@@ -45,7 +45,7 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="id" Type="decimal" Precision="18" Scale="0" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="customer_id" Type="decimal" Precision="18" Scale="0" Nullable="false" />
           <Property Name="specialoffer_id" Type="decimal" Precision="18" Scale="0" Nullable="false" />
         </EntityType>
@@ -61,7 +61,7 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="id" Type="decimal" Precision="18" Scale="0" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="name" Type="text" Nullable="false" />
           <Property Name="quantity_for_sale" Type="decimal" Precision="18" Scale="0" Nullable="false" />
           <Property Name="quantity_for_test" Type="decimal" Precision="18" Scale="0" Nullable="false" />
@@ -73,7 +73,7 @@
           <Key>
             <PropertyRef Name="product_id" />
           </Key>
-          <Property Name="product_category_id" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="product_category_id" Type="decimal" Precision="18" Scale="0" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="chasis_series" Type="decimal" Precision="18" Scale="0" Nullable="false" />
           <Property Name="isforsale" Type="decimal" Precision="18" Scale="0" Nullable="false" />
           <Property Name="product_id" Type="decimal" Precision="18" Scale="0" Nullable="false" />
@@ -82,7 +82,7 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="id" Type="decimal" Precision="18" Scale="0" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="name" Type="text" Nullable="false" />
           <Property Name="details" Type="text" Nullable="false" />
           <Property Name="contact_id" Type="decimal" Precision="18" Scale="0" Nullable="false" />
@@ -94,7 +94,7 @@
           <Property Name="salesman_id" Type="decimal" Precision="18" Scale="0" Nullable="false" />
           <Property Name="customer_id" Type="decimal" Precision="18" Scale="0" Nullable="false" />
           <Property Name="text" Type="varchar" MaxLength="25" Nullable="false" />
-          <Property Name="id" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="id" Type="decimal" Precision="18" Scale="0" Nullable="false" StoreGeneratedPattern="Identity" />
         </EntityType>
         <EntityType Name="Salesman">
           <Key>
@@ -103,13 +103,13 @@
           <Property Name="user_id" Type="decimal" Precision="18" Scale="0" Nullable="false" />
           <Property Name="name" Type="varchar" MaxLength="25" Nullable="false" />
           <Property Name="surname" Type="varchar" MaxLength="25" Nullable="false" />
-          <Property Name="id" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="id" Type="decimal" Precision="18" Scale="0" Nullable="false" StoreGeneratedPattern="Identity" />
         </EntityType>
         <EntityType Name="SpecialOffer">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="id" Type="decimal" Precision="18" Scale="0" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="discount_percent" Type="decimal" Precision="18" Scale="0" Nullable="false" />
           <Property Name="discout_details" Type="text" Nullable="false" />
         </EntityType>
@@ -127,7 +127,7 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="id" Type="decimal" Precision="18" Scale="0" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="product_details_id" Type="decimal" Precision="18" Scale="0" Nullable="false" />
         </EntityType>
         <EntityType Name="User">
@@ -136,9 +136,11 @@
           </Key>
           <Property Name="username" Type="varchar" MaxLength="25" Nullable="false" />
           <Property Name="password" Type="varchar" MaxLength="25" Nullable="false" />
-          <Property Name="id" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="id" Type="decimal" Precision="18" Scale="0" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="contact_id" Type="decimal" Precision="18" Scale="0" Nullable="false" />
         </EntityType>
+        
+        
         <Association Name="Customer_fk0">
           <End Role="User" Type="Self.User" Multiplicity="1" />
           <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
@@ -601,6 +603,8 @@
           <NavigationProperty Name="Customers" Relationship="Self.Customer_fk0" FromRole="User" ToRole="Customer" />
           <NavigationProperty Name="Salesmen" Relationship="Self.Salesman_fk0" FromRole="User" ToRole="Salesman" />
         </EntityType>
+        
+        
         <Association Name="Prospect_fk0">
           <End Role="Contact" Type="Self.Contact" Multiplicity="1" />
           <End Role="Prospect" Type="Self.Prospect" Multiplicity="*" />
